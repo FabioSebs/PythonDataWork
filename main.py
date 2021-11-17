@@ -63,13 +63,12 @@ def replaceCategorical():
 
 
 def plots():
-    # Age Range of Drivers
+    # Age Range of Drivers with Annual Premium
     df = pd.DataFrame(replaceCategorical())
-    df = df["Age"]
+    x = df["Age"]
+    y = df["Annual_Premium"]
     # plot 1
-    ageVisual = df.plot(kind="scatter", x='Clump',
-                        y="UnifSize", color="red", label="Ages")
-    print(ageVisual)
+    plt.scatter(x, y, s=2, c="red")
 # 3
 
 
