@@ -59,8 +59,19 @@ def replaceCategorical():
     print(df.head(10))
     return df
 
+# 2
 
+
+def plots():
+    # Age Range of Drivers
+    df = pd.DataFrame(replaceCategorical())
+    df = df["Age"]
+    # plot 1
+    ageVisual = df.plot(kind="scatter", x='Clump',
+                        y="UnifSize", color="red", label="Ages")
+    print(ageVisual)
 # 3
+
 
 def SVM():
     df = replaceCategorical()
@@ -77,7 +88,7 @@ def SVM():
     y = np.asarray(df['Vehicle_Damage'])
 
     X_train, X_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.2, random_state=4)
+        x, y, test_size=0.3, random_state=3161)
 
     classifierModel = svm.SVC(kernel='linear', gamma='auto', C=2)
 
@@ -85,6 +96,7 @@ def SVM():
 
     y_predict = classifierModel.predict(X_test)
 
+    # Shows the accuracy based on the precision and f-score
     print(classification_report(y_test, y_predict))
 
 
@@ -92,4 +104,5 @@ def SVM():
 # getTenRows()
 # fillMissing()
 # replaceCategorical()
-SVM()
+# SVM()
+plots()
